@@ -38,7 +38,63 @@ public class Player : MonoBehaviour
         }
     }
 
-void Start()
+    // adds to the player's health and armor
+    private void pickupHealth()
+    {
+        health += 50;
+        if (health > 200)
+        {
+            health = 200;
+        }
+    }
+
+    private void pickupArmor()
+    {
+        armor += 15;
+    }
+
+    // adds ammunition for that gun type
+    private void pickupAssaultRifleAmmo()
+    {
+        ammo.AddAmmo(Constants.AssaultRifle, 50);
+    }
+
+    private void pickupPisolAmmo()
+    {
+        ammo.AddAmmo(Constants.Pistol, 20);
+    }
+
+    private void pickupShotgunAmmo()
+    {
+        ammo.AddAmmo(Constants.Shotgun, 10);
+    }
+
+    public void PickUpItem(int pickupType)
+    {
+        switch (pickupType)
+        {
+            case Constants.PickUpArmor:
+                pickupArmor();
+                break;
+            case Constants.PickUpHealth:
+                pickupHealth();
+                break;
+            case Constants.PickUpAssaultRifleAmmo:
+                pickupAssaultRifleAmmo();
+                break;
+            case Constants.PickUpPistolAmmo:
+                pickupPisolAmmo();
+                break;
+            case Constants.PickUpShotgunAmmo:
+                pickupShotgunAmmo();
+                break;
+            default:
+                Debug.LogError("Bad pickup type passed" + pickupType);
+                break;
+        }
+    }
+
+    void Start()
     {
         ammo = GetComponent<Ammo>();
         gunEquipper = GetComponent<GunEquipper>();

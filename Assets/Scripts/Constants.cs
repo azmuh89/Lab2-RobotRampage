@@ -19,11 +19,11 @@ public class Constants : MonoBehaviour
     public const string YellowRobot = "YellowRobot";
 
     //Pickup Types
-    public const int PickupPistolAmmo = 1;
-    public const int PickupAssaultRifleAmmo = 2;
-    public const int PickupShotgunAmmo = 3;
-    public const int PickupHealth = 4;
-    public const int PickupArmor = 5;
+    public const int PickUpPistolAmmo = 1;
+    public const int PickUpAssaultRifleAmmo = 2;
+    public const int PickUpShotgunAmmo = 3;
+    public const int PickUpHealth = 4;
+    public const int PickUpArmor = 5;
 
     //Misc
     public const string Game = "Game";
@@ -41,10 +41,10 @@ public class Constants : MonoBehaviour
 
     public static readonly int[] AllPickupTypes = new int[5]
     {
-        PickupPistolAmmo,
-        PickupAssaultRifleAmmo,
-        PickupShotgunAmmo,
-        PickupHealth,
-        PickupArmor
+        PickUpPistolAmmo,
+        PickUpAssaultRifleAmmo,
+        PickUpShotgunAmmo,
+        PickUpHealth,
+        PickUpArmor
     };
 }

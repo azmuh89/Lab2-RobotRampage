@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
+    public GameObject gameOverPanel;
     public GameUI gameUI;
     public GameObject player;
     public int score;
@@ -87,6 +89,40 @@ public class Game : MonoBehaviour
         }
     }
 
+    // frees the mouse cursor when game is over
+    public void OnGUI()
+    {
+        if (isGameOver && Cursor.visible == false)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+    // sets timeScale to 0 so robots stop moving
+    public void GameOver()
+    {
+        isGameOver = true;
+        Time.timeScale = 0;
+        player.GetComponent<FirstPersonController>().enabled = false;
+        player.GetComponent<CharacterController>().enabled = false;
+        gameOverPanel.SetActive(true);
+    }
+    // will restart the game
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(Constants.SceneBattle);
+        gameOverPanel.SetActive(true);
+    }
+    // will exit the game
+    public void Exit()
+    {
+        Application.Quit();
+    }
+    // goes to main menu scene
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(Constants.SceneMenu);
+    }
 
     void Update()
     {

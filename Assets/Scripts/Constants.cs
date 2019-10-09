@@ -6,7 +6,7 @@ public class Constants : MonoBehaviour
 {
     //Scenes
     public const string SceneBattle = "Battle";
-    public const string SceneMeny = "MainMenu";
+    public const string SceneMenu = "MainMenu";
 
     //Gun Types
     public const string Pistol = "Pistol";

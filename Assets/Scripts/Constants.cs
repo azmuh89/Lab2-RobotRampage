@@ -27,7 +27,7 @@ public class Constants : MonoBehaviour
 
     //Misc
     public const string Game = "Game";
-    public const float CameraDefaultZone = 60f;
+    public const float CameraDefaultZoom = 60f;
 
     void Start()
     {

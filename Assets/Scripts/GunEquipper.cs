@@ -7,6 +7,9 @@ public class GunEquipper : MonoBehaviour
     [SerializeField]
     GameUI gameUI;
 
+    [SerializeField]
+    Ammo ammo;
+
     public static string activeWeaponType;
 
     public GameObject pistol;
@@ -51,6 +54,8 @@ public class GunEquipper : MonoBehaviour
 
         weapon.SetActive(true);
         activeGun = weapon;
+
+        gameUI.SetAmmoText(ammo.GetAmmo(activeGun.tag));
     }
 
     public GameObject GetActiveWeapon()
